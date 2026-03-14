@@ -222,6 +222,32 @@ Expected behavior:
 - if relevant products exist, ranked cards and a summary are shown
 - if the item is not available in the catalog, the UI shows `Product not available.`
 
+## Screenshots
+
+### 1. Homepage Dashboard
+
+This screen shows the landing dashboard of the project, including Endee connection status, indexed product count, category count, and the overall AI product recommendation workspace.
+
+![Homepage Dashboard](screenshots/01-home-hero.png)
+
+### 2. Unavailable Product Handling
+
+This screen shows the fallback behavior when a user searches for a product that does not exist in the catalog. Instead of returning misleading results, the system clearly responds with `Product not available.`
+
+![Unavailable Product Handling](screenshots/02-unavailable-query.png)
+
+### 3. AI Recommendation Brief
+
+This screen shows the retrieval-augmented recommendation summary generated from Endee search results. It highlights the top pick, category, price, and comparison insights for the user query.
+
+![AI Recommendation Brief](screenshots/03-recommendation-brief.png)
+
+### 4. Ranked Product Results
+
+This screen shows the final ranked recommendation cards, including diversified product matches, category-aware labels, semantic match scores, and INR pricing.
+
+![Ranked Product Results](screenshots/04-results-grid.png)
+
 ## Technical Notes
 
 - Sentence Transformers can be used for richer embeddings when available.
