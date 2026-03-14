@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Product Recommendation Engine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page-shell">
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <div class="ambient ambient-three"></div>
+
+    <section class="top-stage">
+        <header class="hero">
+            <div class="hero-copy">
+                <div class="status-pill" id="statusPill">Connecting to backend...</div>
+                <p class="eyebrow">Endee-powered retrieval and recommendation workspace</p>
+                <h1 class="title">AI Product Recommendation Engine</h1>
+                <p class="subtitle">
+                    Retrieval-augmented product discovery built on Endee vector search, semantic ranking, and AI-style recommendation summaries.
+                </p>
+
+                <div class="hero-badges">
+                    <span class="hero-chip">Vector Search</span>
+                    <span class="hero-chip">Semantic Retrieval</span>
+                    <span class="hero-chip">RAG-style Briefing</span>
+                </div>
+            </div>
+
+            <div class="hero-side">
+                <div class="hero-stats">
+                    <article class="stat-card">
+                        <span class="stat-label">Indexed products</span>
+                        <strong class="stat-value" id="statProducts">--</strong>
+                    </article>
+                    <article class="stat-card">
+                        <span class="stat-label">Product varieties</span>
+                        <strong class="stat-value" id="statVarieties">--</strong>
+                    </article>
+                    <article class="stat-card">
+                        <span class="stat-label">Live categories</span>
+                        <strong class="stat-value" id="statCategories">--</strong>
+                    </article>
+                </div>
+
+                <div class="hero-story">
+                    <p class="story-kicker">Why this project stands out</p>
+                    <ul class="story-points">
+                        <li>Endee stores and retrieves the catalog as vectors instead of plain keyword rows.</li>
+                        <li>The backend synthesizes a recommendation brief from retrieved context, so the UI feels like an advisor.</li>
+                        <li>Category filters, unavailable-product handling, and semantic search all work in one flow.</li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <section class="search-panel">
+            <div class="search-heading">
+                <div>
+                    <p class="search-kicker">Search the catalog</p>
+                    <h2>Ask naturally, browse instantly</h2>
+                </div>
+                <p class="search-copy">
+                    Leave the search bar empty to browse highlighted products, or add a query to get AI-ranked matches from Endee.
+                </p>
+            </div>
+            <div class="search-box">
+                <input id="searchInput" placeholder="Search products like 'wireless mechanical keyboard'...">
+                <select id="categoryFilter">
+                    <option value="">All categories</option>
+                </select>
+                <button id="searchButton" type="button">Search AI</button>
+            </div>
+            <p class="helper-text">
+                Example queries: "portable storage for creators", "gaming setup for students", "audio device for calls"
+            </p>
+        </section>
+
+    </section>
+
+    <section class="results-section" id="resultsSection">
+        <div class="section-header">
+            <div>
+                <h2 id="resultsTitle">Catalog Highlights</h2>
+                <p id="resultsMeta">Loading product catalog...</p>
+            </div>
+            <div class="results-badge" id="resultCountBadge">0 items</div>
+        </div>
+        <div id="ragBrief" class="rag-brief is-hidden"></div>
+        <div id="results" class="results-grid"></div>
+
+        <section class="value-strip secondary-strip">
+            <article class="value-card retrieve-card">
+                <div class="value-icon">
+                    <svg viewBox="0 0 64 64" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="retrieveGradient" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#38BDF8"/>
+                                <stop offset="100%" stop-color="#60A5FA"/>
+                            </linearGradient>
+                        </defs>
+                        <rect x="10" y="12" width="44" height="34" rx="12" fill="url(#retrieveGradient)"/>
+                        <path d="M18 28h28M18 20h18M18 36h20" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+                        <circle cx="48" cy="48" r="10" fill="#FFFFFF"/>
+                        <path d="M52 52l6 6" stroke="#60A5FA" stroke-width="4" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <span class="value-label">Retrieve</span>
+                <h3>Endee powers the search layer</h3>
+                <p>Products are indexed as vectors so the system understands intent, not only exact wording.</p>
+            </article>
+            <article class="value-card rank-card">
+                <div class="value-icon">
+                    <svg viewBox="0 0 64 64" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="rankGradient" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#FDBA74"/>
+                                <stop offset="100%" stop-color="#FB923C"/>
+                            </linearGradient>
+                        </defs>
+                        <rect x="10" y="34" width="12" height="18" rx="6" fill="url(#rankGradient)"/>
+                        <rect x="26" y="24" width="12" height="28" rx="6" fill="url(#rankGradient)"/>
+                        <rect x="42" y="14" width="12" height="38" rx="6" fill="url(#rankGradient)"/>
+                        <path d="M14 16l10 8 12-10 14 8" stroke="#7C2D12" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <span class="value-label">Rank</span>
+                <h3>Results are diversified</h3>
+                <p>The retrieval logic avoids flooding the screen with one repeated item type for broad queries.</p>
+            </article>
+            <article class="value-card explain-card">
+                <div class="value-icon">
+                    <svg viewBox="0 0 64 64" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="explainGradient" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#86EFAC"/>
+                                <stop offset="100%" stop-color="#4ADE80"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M18 18h28a8 8 0 0 1 8 8v12a8 8 0 0 1-8 8H32l-10 8v-8h-4a8 8 0 0 1-8-8V26a8 8 0 0 1 8-8z" fill="url(#explainGradient)"/>
+                        <path d="M24 28h16M24 36h10" stroke="#14532D" stroke-width="4" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <span class="value-label">Explain</span>
+                <h3>AI-style recommendation brief</h3>
+                <p>Every strong search can show a generated summary explaining the top pick and the reasoning.</p>
+            </article>
+        </section>
+    </section>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

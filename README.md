@@ -32,6 +32,14 @@ Endee combines vector search with filtering, sparse retrieval support, backup wo
 
 If you want the fastest path to evaluate Endee locally, start with the [Getting Started guide](./docs/getting-started.md) or the hosted docs at [docs.endee.io](https://docs.endee.io/quick-start).
 
+## Project Submission
+
+This fork also includes a submission project built on top of Endee:
+
+- [AI Product Recommendation Engine](./rag_debugger/README.md)
+
+The project demonstrates semantic product recommendations using Endee as the vector database, with a FastAPI backend and a lightweight frontend demo.
+
 ## Why Endee
 
 - Built as a dedicated vector database for AI applications, search systems, and retrieval-heavy workloads.
